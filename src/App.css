@@ -55,14 +55,14 @@ body::before {
     radial-gradient(50vmin 40vmin at 50% 100%, var(--glow-2), transparent 70%);
 }
 
-/* ============ layout (mobile first) ============ */
+/* layout (mobile first)  */
 .stopwatch {
   width: 100%;
   max-width: 440px;
   height: 100dvh;
   margin: 0 auto;
   padding: max(28px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right))
-           max(28px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+  max(28px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
   grid-template-areas: "dial" "laps" "controls";
@@ -73,7 +73,7 @@ body::before {
 .laps     { grid-area: laps; }
 .controls { grid-area: controls; }
 
-/* ============ dial ============ */
+/* dial */
 .dial {
   position: relative;
   width: min(90vw, 54dvh, 400px);
@@ -107,8 +107,7 @@ body::before {
   inset: 16%;
   border-radius: 50%;
   background:
-    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.1), transparent 60%),
-    var(--surface);
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.1), transparent 60%),var(--surface);
   border: 1px solid var(--surface-border);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
@@ -143,7 +142,7 @@ body::before {
 }
 .dial.is-running .status { color: var(--grad-b); }
 
-/* ============ laps ============ */
+/* laps */
 .laps {
   list-style: none;
   margin: 0;
@@ -197,7 +196,7 @@ body::before {
   max-width: 24ch;
 }
 
-/* ============ controls ============ */
+/*controls */
 .controls {
   width: 100%;
   display: flex;
@@ -257,7 +256,7 @@ body::before {
   .circle:hover:not(:disabled) { filter: brightness(1.1); transform: translateY(-2px); }
 }
 
-/* ============ responsive: landscape, tablets, desktop ============ */
+/* responsive: landscape, tablets, desktop  */
 @media (min-width: 760px) and (min-aspect-ratio: 1/1),
       (orientation: landscape) and (max-height: 520px) {
   .stopwatch {
@@ -284,7 +283,7 @@ body::before {
   * { transition: none !important; animation: none !important; }
 }
 
-/* ============ dial ============ */
+/* dial  */
 .dial {
   position: relative;
   width: min(90vw, 54dvh, 400px);
@@ -317,9 +316,7 @@ body::before {
   position: absolute;
   inset: 16%;
   border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.1), transparent 60%),
-    var(--surface);
+  background:radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.1), transparent 60%),var(--surface);
   border: 1px solid var(--surface-border);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
@@ -353,3 +350,57 @@ body::before {
   letter-spacing: 0.06em;
 }
 .dial.is-running .status { color: var(--grad-b); }
+
+/* laps */
+.laps {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  width: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--track) transparent;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 10px, #000 calc(100% - 18px), transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 10px, #000 calc(100% - 18px), transparent);
+}
+.laps li {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 18px;
+  margin-bottom: 8px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.lap-no { color: var(--muted); }
+.lap-split { font-size: 1.05rem; }
+.lap-total { text-align: right; color: var(--muted); }
+
+.laps.empty {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 16px 24px;
+  border: 1px dashed var(--surface-border);
+  border-radius: 20px;
+  max-height: 120px;
+  align-self: center;
+  mask-image: none;
+  -webkit-mask-image: none;
+  overflow: hidden;
+}
+.laps.empty p {
+  margin: 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 24ch;
+}
