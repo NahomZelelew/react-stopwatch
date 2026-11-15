@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import Dial from "./components/Dial";
 import Controls from "./components/Controls";
 import LapList from "./components/LapList";
-import { formatTime } from "./utils/formatTime";
 
 export default function App() {
   const [elapsed, setElapsed] = useState(0); // milliseconds
@@ -32,7 +32,7 @@ export default function App() {
 
   return (
     <main className="stopwatch">
-      <h1 role="timer">{formatTime(elapsed)}</h1>
+      <Dial elapsed={elapsed} running={running} />
       <LapList laps={laps} />
       <Controls
         running={running}
