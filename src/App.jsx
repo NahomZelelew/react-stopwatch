@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Dial from "./components/Dial";
 import Controls from "./components/Controls";
 import LapList from "./components/LapList";
+import "./App.css";
 
 export default function App() {
   const [elapsed, setElapsed] = useState(0); // milliseconds

@@ -1,0 +1,33 @@
+:root {
+  --bg: #07090d;
+  --glow: rgba(48, 255, 170, 0.2);
+  --glow-2: rgba(60, 140, 255, 0.16);
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-border: rgba(255, 255, 255, 0.1);
+  --text: #f2f7f4;
+  --muted: #8a9a92;
+  --tick: rgba(255, 255, 255, 0.16);
+  --tick-major: rgba(255, 255, 255, 0.85);
+  --track: rgba(255, 255, 255, 0.07);
+  --grad-a: #c6ff3d;
+  --grad-b: #2de2c8;
+  --stop-a: #ff7a7a;
+  --stop-b: #ff3d7f;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f2f6f1;
+    --glow: rgba(90, 210, 130, 0.28);
+    --glow-2: rgba(60, 140, 255, 0.15);
+    --surface: rgba(255, 255, 255, 0.75);
+    --surface-border: rgba(255, 255, 255, 0.95);
+    --text: #0c1410;
+    --muted: #5f6f66;
+    --tick: rgba(12, 20, 16, 0.14);
+    --tick-major: rgba(12, 20, 16, 0.8);
+    --track: rgba(12, 20, 16, 0.07);
+    --grad-a: #2fb344;
+    --grad-b: #0aa6b7;
+  }
+}
