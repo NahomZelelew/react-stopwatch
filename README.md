@@ -1,16 +1,32 @@
-# React + Vite
+# React Stopwatch
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A stopwatch I made while learning React hooks. You can start, stop, resume and record laps.
 
-Currently, two official plugins are available:
+## Run it
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+git clone https://github.com/NahomZelelew/react-stopwatch
+cd stopwatch-react
+npm install
+npm run dev
+```
 
-## React Compiler
+Then open the link that Vite prints in the terminal.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## How it works
 
-## Expanding the Oxlint configuration
+The state lives in `App.jsx` with `useState`: the elapsed time, whether it is running, and the list of laps. `App` passes that data down to `Dial`, `Controls` and `LapList` as props.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+A `useEffect` with `setInterval` updates the time every 10 ms. It reads the real clock with `Date.now()` instead of adding up ticks, so the time stays accurate and Resume continues where it stopped.
+
+## What I learned
+
+- How `useState` makes React redraw the page
+- Passing data and functions to child components with props
+- Using `useEffect` and cleaning up an interval
+- Laying out a page with CSS grid so it works on phones and desktops
+
+## Ideas for later
+
+- Save laps in `localStorage`
+- Keyboard shortcuts for start, stop and lap
