@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Controls from "./components/Controls";
 import { formatTime } from "./utils/formatTime";
 
 export default function App() {
@@ -17,9 +18,11 @@ export default function App() {
   return (
     <main className="stopwatch">
       <h1 role="timer">{formatTime(elapsed)}</h1>
-      <button onClick={() => setRunning(!running)}>
-        {running ? "Stop" : elapsed > 0 ? "Resume" : "Start"}
-      </button>
+      <Controls
+        running={running}
+        hasStarted={elapsed > 0}
+        onToggle={() => setRunning(!running)}
+      />
     </main>
   );
 }
